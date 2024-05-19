@@ -43,7 +43,7 @@ class DefaultHotelService implements HotelService {
 
 	@Override
 	public Hotel getHotelById(Long id) {
-		return hotelRepository.findById(id).orElseThrow(() -> new ElementNotFoundException("Hotel with the hotel id : "+id+" doesn't exist"));
+		return hotelRepository.findById(id).orElseThrow();
 	}
 
 	@Override
