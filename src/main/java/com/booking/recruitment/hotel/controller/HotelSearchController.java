@@ -31,8 +31,10 @@ public class HotelSearchController {
 
         List<Hotel> hotels = hotelService.getAllHotels();
 
-        hotels.sort(Comparator.comparingDouble(hotel -> calculateDistance(city.getCityCentreLatitude(), city.getCityCentreLongitude(), hotel.getLatitude(), hotel.getLongitude())));
-
+        if (sortBy.equals("distance")) {
+            hotels.sort(Comparator.comparingDouble(hotel -> calculateDistance(city.getCityCentreLatitude(), city.getCityCentreLongitude(), hotel.getLatitude(), hotel.getLongitude())));
+        }
+        
         return hotels.stream()
                 .limit(3)
                 .collect(Collectors.toList());
