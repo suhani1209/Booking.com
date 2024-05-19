@@ -23,10 +23,18 @@ public class HotelController {
   public List<Hotel> getAllHotels() {
     return hotelService.getAllHotels();
   }
+  
+  @GetMapping("/{id}")
+  @ResponseStatus(HttpStatus.OK)
+  public Hotel getHotelById(@PathVariable Long id) {
+	  return hotelService.getHotelByHotelId(id);
+  }
 
   @PostMapping
   @ResponseStatus(HttpStatus.CREATED)
   public Hotel createHotel(@RequestBody Hotel hotel) {
     return hotelService.createNewHotel(hotel);
   }
+  
+  
 }

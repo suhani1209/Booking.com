@@ -1,6 +1,7 @@
 package com.booking.recruitment.hotel.service.impl;
 
 import com.booking.recruitment.hotel.exception.BadRequestException;
+import com.booking.recruitment.hotel.exception.ElementNotFoundException;
 import com.booking.recruitment.hotel.model.Hotel;
 import com.booking.recruitment.hotel.repository.HotelRepository;
 import com.booking.recruitment.hotel.service.HotelService;
@@ -39,4 +40,9 @@ class DefaultHotelService implements HotelService {
 
     return hotelRepository.save(hotel);
   }
+
+	@Override
+	public Hotel getHotelByHotelId(Long id) {
+		return hotelRepository.findById(id).orElseThrow(() -> new ElementNotFoundException("Hotel with the hotel id : "+id+" doesn't exist"));
+	}
 }
