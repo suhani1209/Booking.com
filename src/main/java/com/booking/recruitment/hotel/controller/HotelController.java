@@ -27,7 +27,13 @@ public class HotelController {
   @GetMapping("/{id}")
   @ResponseStatus(HttpStatus.OK)
   public Hotel getHotelById(@PathVariable Long id) {
-	  return hotelService.getHotelByHotelId(id);
+	  return hotelService.getHotelById(id);
+  }
+  
+  @DeleteMapping("/{id}")
+  @ResponseStatus(HttpStatus.OK)
+  public void deleteHotelById(@PathVariable Long id) {
+	  hotelService.deleteHotel(id);
   }
 
   @PostMapping

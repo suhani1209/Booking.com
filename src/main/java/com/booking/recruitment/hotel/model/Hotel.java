@@ -3,10 +3,14 @@ package com.booking.recruitment.hotel.model;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
+
+import org.hibernate.annotations.Where;
+
 import java.io.Serializable;
 import java.util.Objects;
 
 @Entity
+@Where(clause = "deleted = false")
 public class Hotel implements Serializable {
   private static final long serialVersionUID = 5560221391479816650L;
 

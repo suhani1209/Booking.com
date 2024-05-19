@@ -11,5 +11,7 @@ public interface HotelService {
 
   Hotel createNewHotel(Hotel hotel);
   
-  Hotel getHotelByHotelId(Long id);
+  Hotel getHotelById(Long id);
+  
+  void deleteHotel(Long id);
 }
